@@ -60,7 +60,7 @@ exports.handler = function(event, context) {
     if (claims.scp.includes('api:read')) {
       policy.allowMethod(AuthPolicy.HttpVerb.GET, "*");
     }
-    else if (claims.scp.includes('api:write')) {
+    if (claims.scp.includes('api:write')) {
       policy.allowMethod(AuthPolicy.HttpVerb.POST, "*");
       policy.allowMethod(AuthPolicy.HttpVerb.PUT, "*");
       policy.allowMethod(AuthPolicy.HttpVerb.PATCH, "*");
